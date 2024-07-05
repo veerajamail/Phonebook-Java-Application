@@ -12,23 +12,23 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                //sh './gradlew clean build' // or 'mvn clean install' for Maven projects
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         //sh './gradlew clean build' // or 'mvn clean install' for Maven projects
+        //     }
+        // }
 
-        stage('Test') {
-            steps {
-                //sh './gradlew test' // or 'mvn test' for Maven projects
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         //sh './gradlew test' // or 'mvn test' for Maven projects
+        //     }
+        // }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying to the server...'
-                // Add deployment steps here
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         echo 'Deploying to the server...'
+        //         // Add deployment steps here
+        //     }
+        // }
     }
 }
