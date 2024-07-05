@@ -7,7 +7,16 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    checkout(repoUrl: 'https://github.com/username/repository.git', branch: 'main', credentialsId: 'github-credentials')
+                    checkout([
+                        $class: 'GenericSCMStep',
+                        scm: [
+                            $class: 'GitSCM',
+                            branches: [[name: '*/main']],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions: [],
+                            userRemoteConfigs: [[url: 'https://github.com/your-repo.git', credentialsId: 'your-credentials-id']]
+                        ]
+                    ])
                 }
             }
         }
