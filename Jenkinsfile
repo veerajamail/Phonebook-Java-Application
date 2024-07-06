@@ -1,15 +1,15 @@
-@Library("sharedlibrary@main") _
+@Library('jenkins-library@main') _
 
 pipeline {
     agent any
     stages {
-        stage('Code Checkout') {
+        stage('Git Checkout') {
             steps {
-                script {
-                  def workingDir = checkoutCode("https://github.com/veerajamail/Phonebook-Java-Application.git", "main")
-                  echo $workingDir
-                }
+            gitCheckout(
+                branch: "master",
+                url: "https://github.com/spring-projects/spring-petclinic.git"
+            )
             }
-        }
+    }
     }
 }
