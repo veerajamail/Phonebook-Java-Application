@@ -11,5 +11,26 @@ pipeline {
             )
             }
     }
+        stage('Notify') {
+            steps {
+                script {
+                    notify(recipients: 'janavlearn@example.com')
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                notify(recipients: 'janavlearn@example.com')
+            }
+        }
+        failure {
+            script {
+                notify(recipients: 'janavlearn@example.com')
+            }
+        }
     }
 }
+
